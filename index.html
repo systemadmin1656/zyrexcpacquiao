@@ -14,6 +14,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
+/* =========================
+RESET
+========================= */
+
 *{
 margin:0;
 padding:0;
@@ -21,15 +25,85 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html,
 body{
-min-height:100vh;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+/* =========================
+BODY
+========================= */
+
+body{
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#031b1b,#005f46,#00c853);
-overflow:hidden;
+
+background:
+linear-gradient(
+135deg,
+#021414,
+#014737,
+#00b85c
+);
+
 position:relative;
 padding:20px;
+overflow:hidden;
+}
+
+/* =========================
+BACKGROUND GLOW
+========================= */
+
+.bg1,
+.bg2,
+.bg3{
+position:absolute;
+border-radius:50%;
+filter:blur(90px);
+animation:float 10s infinite alternate;
+pointer-events:none;
+}
+
+.bg1{
+width:300px;
+height:300px;
+background:#00ff99;
+top:-120px;
+left:-120px;
+opacity:0.18;
+}
+
+.bg2{
+width:250px;
+height:250px;
+background:#00c853;
+bottom:-100px;
+right:-100px;
+opacity:0.18;
+animation-delay:2s;
+}
+
+.bg3{
+width:220px;
+height:220px;
+background:#69f0ae;
+top:35%;
+right:20%;
+opacity:0.12;
+animation-delay:4s;
+}
+
+@keyframes float{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(40px);
+}
 }
 
 /* =========================
@@ -38,25 +112,37 @@ LOADER
 
 .loader{
 position:fixed;
-inset:0;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
 background:#021414;
+
 display:flex;
+flex-direction:column;
+
 justify-content:center;
 align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:hideLoader 0.8s ease 2s forwards;
-padding:20px;
-text-align:center;
+
+gap:18px;
+
+z-index:99999;
+
+animation:hideLoader 0.8s ease 2.2s forwards;
+
+overflow:hidden;
 }
 
 .loader-logo{
-width:130px;
-height:130px;
+width:110px;
+height:110px;
+
 display:flex;
 justify-content:center;
 align-items:center;
-margin:auto;
+
 animation:heartbeat 1.2s infinite;
 }
 
@@ -64,8 +150,6 @@ animation:heartbeat 1.2s infinite;
 width:100%;
 height:100%;
 object-fit:contain;
-display:block;
-margin:auto;
 
 filter:
 drop-shadow(0 0 15px #00ff99)
@@ -73,18 +157,14 @@ drop-shadow(0 0 35px #00ff99);
 }
 
 .loader-text{
-font-size:18px;
+font-size:16px;
 font-weight:800;
-color:white;
 letter-spacing:2px;
+color:white;
 text-align:center;
-animation:pulseText 1.5s infinite alternate;
-margin-top:10px;
-}
 
-/* =========================
-ANIMATIONS
-========================= */
+animation:pulseText 1.5s infinite alternate;
+}
 
 @keyframes heartbeat{
 
@@ -123,78 +203,8 @@ opacity:1;
 to{
 opacity:0;
 visibility:hidden;
+pointer-events:none;
 }
-}
-
-@keyframes float{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(40px);
-}
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes glow{
-from{
-box-shadow:0 0 15px #00ff99;
-}
-to{
-box-shadow:0 0 45px #00ff99;
-}
-}
-
-/* =========================
-BACKGROUND EFFECTS
-========================= */
-
-.bg1,
-.bg2,
-.bg3{
-position:absolute;
-border-radius:50%;
-filter:blur(100px);
-animation:float 10s infinite alternate;
-}
-
-.bg1{
-width:350px;
-height:350px;
-background:#00ff99;
-top:-120px;
-left:-120px;
-opacity:0.2;
-}
-
-.bg2{
-width:300px;
-height:300px;
-background:#00c853;
-bottom:-100px;
-right:-100px;
-opacity:0.2;
-animation-delay:2s;
-}
-
-.bg3{
-width:250px;
-height:250px;
-background:#69f0ae;
-top:20%;
-right:35%;
-opacity:0.15;
-animation-delay:4s;
 }
 
 /* =========================
@@ -203,28 +213,45 @@ CARD
 
 .card{
 position:relative;
+
 width:390px;
 max-width:100%;
+
 padding:35px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.15);
+
 border-radius:35px;
-box-shadow:0 10px 50px rgba(0,0,0,0.5);
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.15);
+
+box-shadow:0 10px 50px rgba(0,0,0,0.45);
+
 text-align:center;
+
 color:white;
-z-index:10;
+
 overflow:hidden;
-animation:fadeIn 1.5s ease;
+
+z-index:10;
+
+animation:fadeIn 1.2s ease;
 }
 
 .card::before{
 content:'';
+
 position:absolute;
 inset:0;
+
 border-radius:35px;
+
 padding:2px;
-background:linear-gradient(
+
+background:
+linear-gradient(
 45deg,
 #00ff99,
 transparent,
@@ -242,19 +269,36 @@ opacity:0.5;
 pointer-events:none;
 }
 
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 /* =========================
 PROFILE
 ========================= */
 
 .profile{
-width:150px;
-height:150px;
+width:145px;
+height:145px;
+
 margin:auto;
+
 border-radius:50%;
 overflow:hidden;
+
 border:4px solid #00ff99;
+
 box-shadow:0 0 30px #00ff99;
+
 position:relative;
+
 animation:glow 2s infinite alternate;
 }
 
@@ -267,12 +311,26 @@ object-fit:cover;
 .online{
 width:20px;
 height:20px;
+
 background:#00ff99;
+
 border-radius:50%;
+
 position:absolute;
+
 right:10px;
 bottom:12px;
+
 border:3px solid white;
+}
+
+@keyframes glow{
+from{
+box-shadow:0 0 15px #00ff99;
+}
+to{
+box-shadow:0 0 40px #00ff99;
+}
 }
 
 /* =========================
@@ -280,23 +338,26 @@ TEXT
 ========================= */
 
 h1{
-font-size:38px;
-margin-top:20px;
+font-size:42px;
 font-weight:800;
-line-height:1.2;
+line-height:1.15;
+
+margin-top:20px;
 }
 
 .role{
-margin-top:10px;
 font-size:15px;
-opacity:0.85;
-margin-bottom:20px;
+opacity:0.88;
+
+margin-top:12px;
+margin-bottom:18px;
 }
 
 .tagline{
 font-size:13px;
 opacity:0.75;
-margin-bottom:25px;
+
+margin-bottom:28px;
 }
 
 /* =========================
@@ -305,41 +366,51 @@ BUTTONS
 
 .btn{
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 gap:12px;
-text-decoration:none;
+
+width:100%;
+
 padding:15px;
+
 margin:12px 0;
+
 border-radius:18px;
+
+text-decoration:none;
+
 font-weight:600;
 font-size:15px;
+
 color:white;
+
 background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.15);
+
+border:1px solid rgba(255,255,255,0.12);
+
 transition:0.35s ease;
-position:relative;
-z-index:99;
 
 cursor:pointer;
+
 -webkit-tap-highlight-color:transparent;
 touch-action:manipulation;
 }
 
+.btn i{
+font-size:17px;
+}
+
 .btn:hover{
-transform:translateY(-4px) scale(1.03);
+transform:translateY(-4px) scale(1.02);
+
 background:#00c853;
+
 box-shadow:0 0 20px #00ff99;
 }
 
 .btn:active{
 transform:scale(0.96);
-background:#00c853;
-box-shadow:0 0 25px #00ff99;
-}
-
-.btn i{
-font-size:17px;
 }
 
 /* =========================
@@ -347,32 +418,43 @@ FOOTER
 ========================= */
 
 .footer{
-margin-top:28px;
+margin-top:26px;
+
 font-size:12px;
+
 line-height:1.7;
+
 opacity:0.75;
 }
 
 /* =========================
-MOBILE RESPONSIVE
+MOBILE
 ========================= */
 
 @media(max-width:480px){
 
 body{
 padding:14px;
-overflow:auto;
-align-items:center;
-justify-content:center;
 }
 
 .card{
+
 width:100%;
 max-width:360px;
+
+max-height:95vh;
+
+overflow-y:auto;
+
 padding:22px;
-border-radius:26px;
-margin-top:20px;
-margin-bottom:20px;
+
+border-radius:28px;
+
+scrollbar-width:none;
+}
+
+.card::-webkit-scrollbar{
+display:none;
 }
 
 .profile{
@@ -383,7 +465,7 @@ border-width:3px;
 
 h1{
 font-size:24px;
-line-height:1.25;
+line-height:1.2;
 margin-top:16px;
 }
 
@@ -412,25 +494,28 @@ font-size:15px;
 
 .footer{
 font-size:10px;
-margin-top:20px;
+margin-top:18px;
 line-height:1.6;
 }
 
+.loader{
+padding:20px;
+}
+
 .loader-logo{
-width:95px;
-height:95px;
+width:90px;
+height:90px;
 }
 
 .loader-text{
 font-size:12px;
 letter-spacing:1px;
-margin-top:8px;
 }
 
 .bg1,
 .bg2,
 .bg3{
-filter:blur(65px);
+filter:blur(60px);
 }
 
 }
@@ -440,12 +525,14 @@ filter:blur(65px);
 
 <body>
 
-<!-- LOADER -->
+<!-- =========================
+LOADER
+========================= -->
 
 <div class="loader">
 
 <div class="loader-logo">
-<img src="logo.png" alt="Zerbisyong Panigurado Logo">
+<img src="logo.png" alt="Logo">
 </div>
 
 <div class="loader-text">
@@ -454,13 +541,17 @@ ZERBISYONG PANIGURADO
 
 </div>
 
-<!-- BACKGROUND -->
+<!-- =========================
+BACKGROUND
+========================= -->
 
 <div class="bg1"></div>
 <div class="bg2"></div>
 <div class="bg3"></div>
 
-<!-- CARD -->
+<!-- =========================
+CARD
+========================= -->
 
 <div class="card">
 
@@ -516,12 +607,6 @@ Mayor Zyrex C. Pacquiao
 </div>
 
 </div>
-
-<!-- BACKGROUND GLOW -->
-
-<div class="bg1"></div>
-<div class="bg2"></div>
-<div class="bg3"></div>
 
 </body>
 </html>
