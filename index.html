@@ -33,7 +33,7 @@ padding:20px;
 }
 
 /* =========================
-LOADING SCREEN
+LOADER
 ========================= */
 
 .loader{
@@ -44,6 +44,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+gap:18px;
 z-index:9999;
 animation:hideLoader 1s ease 3s forwards;
 padding:20px;
@@ -73,16 +74,14 @@ drop-shadow(0 0 35px #00ff99);
 }
 
 .loader-text{
-margin-top:25px;
 font-size:20px;
 font-weight:800;
 color:white;
 letter-spacing:2px;
 text-align:center;
 animation:pulseText 1.5s infinite alternate;
+margin-top:0;
 }
-
-/* HEARTBEAT */
 
 @keyframes heartbeat{
 
@@ -359,42 +358,59 @@ MOBILE RESPONSIVE
 @media(max-width:480px){
 
 body{
-padding:20px;
+padding:14px;
 overflow:auto;
+align-items:flex-start;
 }
 
 .card{
 width:100%;
-padding:25px;
-border-radius:28px;
+max-width:360px;
+padding:22px;
+border-radius:26px;
+margin-top:20px;
+margin-bottom:20px;
 }
 
 .profile{
-width:120px;
-height:120px;
+width:105px;
+height:105px;
+border-width:3px;
 }
 
 h1{
-font-size:32px;
-line-height:1.2;
+font-size:24px;
+line-height:1.25;
+margin-top:16px;
 }
 
 .role{
-font-size:13px;
+font-size:12px;
+margin-top:8px;
+margin-bottom:14px;
 }
 
 .tagline{
-font-size:12px;
+font-size:11px;
+margin-bottom:18px;
 }
 
 .btn{
-padding:14px;
+padding:13px;
 font-size:14px;
-border-radius:15px;
+border-radius:14px;
+margin:10px 0;
+gap:10px;
+}
+
+.btn i{
+font-size:15px;
 }
 
 .footer{
-font-size:11px;
+font-size:10px;
+margin-top:20px;
+line-height:1.6;
 }
 
 .loader{
@@ -403,8 +419,8 @@ text-align:center;
 }
 
 .loader-logo{
-width:150px;
-height:150px;
+width:120px;
+height:120px;
 margin:auto;
 }
 
@@ -415,15 +431,15 @@ object-fit:contain;
 }
 
 .loader-text{
-font-size:15px;
+font-size:14px;
 letter-spacing:1px;
-padding:0 15px;
+margin-top:0;
 }
 
 .bg1,
 .bg2,
 .bg3{
-filter:blur(70px);
+filter:blur(65px);
 }
 
 }
