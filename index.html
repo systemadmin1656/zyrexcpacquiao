@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,13 +22,14 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#031b1b,#005f46,#00c853);
 overflow:hidden;
 position:relative;
+padding:20px;
 }
 
 /* =========================
@@ -175,6 +177,7 @@ CARD
 .card{
 position:relative;
 width:390px;
+max-width:100%;
 padding:35px;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(18px);
@@ -207,7 +210,10 @@ linear-gradient(#fff 0 0);
 
 -webkit-mask-composite:xor;
 mask-composite:exclude;
+
 opacity:0.5;
+
+pointer-events:none;
 }
 
 @keyframes fadeIn{
@@ -306,6 +312,8 @@ color:white;
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.15);
 transition:0.35s ease;
+position:relative;
+z-index:99;
 }
 
 .btn:hover{
@@ -330,27 +338,65 @@ opacity:0.75;
 }
 
 /* =========================
-MOBILE
+MOBILE RESPONSIVE
 ========================= */
 
 @media(max-width:480px){
 
+body{
+padding:20px;
+overflow:auto;
+}
+
 .card{
-width:92%;
-padding:28px;
+width:100%;
+padding:25px;
+border-radius:28px;
+}
+
+.profile{
+width:120px;
+height:120px;
 }
 
 h1{
-font-size:30px;
+font-size:32px;
+line-height:1.2;
+}
+
+.role{
+font-size:13px;
+}
+
+.tagline{
+font-size:12px;
+}
+
+.btn{
+padding:14px;
+font-size:14px;
+border-radius:15px;
+}
+
+.footer{
+font-size:11px;
 }
 
 .loader-logo{
-width:150px;
-height:150px;
+width:140px;
+height:140px;
 }
 
 .loader-text{
-font-size:16px;
+font-size:15px;
+letter-spacing:1px;
+padding:0 15px;
+}
+
+.bg1,
+.bg2,
+.bg3{
+filter:blur(70px);
 }
 
 }
@@ -377,7 +423,7 @@ ZERBISYONG PANIGURADO
 </div>
 
 <!-- =========================
-BACKGROUND
+BACKGROUND EFFECTS
 ========================= -->
 
 <div class="bg1"></div>
@@ -385,7 +431,7 @@ BACKGROUND
 <div class="bg3"></div>
 
 <!-- =========================
-CARD
+MAIN CARD
 ========================= -->
 
 <div class="card">
