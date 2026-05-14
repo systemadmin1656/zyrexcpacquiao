@@ -79,9 +79,12 @@ color:white;
 letter-spacing:2px;
 text-align:center;
 animation:pulseText 1.5s infinite alternate;
-
 margin-top:10px;
 }
+
+/* =========================
+ANIMATIONS
+========================= */
 
 @keyframes heartbeat{
 
@@ -120,6 +123,35 @@ opacity:1;
 to{
 opacity:0;
 visibility:hidden;
+}
+}
+
+@keyframes float{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(40px);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes glow{
+from{
+box-shadow:0 0 15px #00ff99;
+}
+to{
+box-shadow:0 0 45px #00ff99;
 }
 }
 
@@ -163,15 +195,6 @@ top:20%;
 right:35%;
 opacity:0.15;
 animation-delay:4s;
-}
-
-@keyframes float{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(40px);
-}
 }
 
 /* =========================
@@ -219,17 +242,6 @@ opacity:0.5;
 pointer-events:none;
 }
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
 /* =========================
 PROFILE
 ========================= */
@@ -250,15 +262,6 @@ animation:glow 2s infinite alternate;
 width:100%;
 height:100%;
 object-fit:cover;
-}
-
-@keyframes glow{
-from{
-box-shadow:0 0 15px #00ff99;
-}
-to{
-box-shadow:0 0 45px #00ff99;
-}
 }
 
 .online{
@@ -359,7 +362,8 @@ MOBILE RESPONSIVE
 body{
 padding:14px;
 overflow:auto;
-align-items:flex-start;
+align-items:center;
+justify-content:center;
 }
 
 .card{
@@ -512,6 +516,12 @@ Mayor Zyrex C. Pacquiao
 </div>
 
 </div>
+
+<!-- BACKGROUND GLOW -->
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
 
 </body>
 </html>
